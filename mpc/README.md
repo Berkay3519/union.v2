@@ -1,4 +1,4 @@
-# Introduction
+# Introduction:
 
 This project contains the client and coordinator to conduct Groth16 multi-party computation for the circuit SRS.
 Three components are in play:
@@ -7,15 +7,15 @@ Three components are in play:
 - Coordinator: contact Supabase and verify contribution to step the state machine.
 - Client: pure function that accepts the current contributor id and generate then upload a contribution payload.
 
-## Supabase
+## Supabase:
 
 Hosts the database, storage services and state machine of the MPC round. Provides instant API on top of them.
 
-## Coordinator
+## Coordinator:
 
 The coordinator is in charge of verifying contributions. When a contribution is deemed valid, it dispatches the value to Supabase (insert an entry), effectively stepping the MPC state machine.
 
-## Client
+## Client:
 
 Exposes an API to contribute at `localhost:4919`:
 
@@ -27,9 +27,9 @@ Exposes an API to contribute at `localhost:4919`:
   - a `200 Ok` if everything is ok with the body containing an encoded `Status` representing the client status (idle, contributing etc...).
   - a `500 InternalServerError` if the contribution failed unexpectedly, the body contains the error message.
 
-### Structures
+### Structures:
 
-#### Contribute
+#### Contribute:
 
 ```json
 {
@@ -42,7 +42,7 @@ Exposes an API to contribute at `localhost:4919`:
 }
 ```
 
-#### Status
+#### Status:
 
 ```rust
 #[serde(rename_all = "camelCase")]
